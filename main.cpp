@@ -1,9 +1,12 @@
 #include <iostream>
 #include "DNAUtility.h"
+#include "FASTQFile.h"
+#include "FASTQRecord.h"
 #include <fstream>
 #include <sstream>
 #include <map>
 #include <string>
+#include <memory>
 
 int main(int argc, char* argv[]){
 
@@ -26,6 +29,7 @@ int main(int argc, char* argv[]){
 
     std::string fileBuffer;
     std::string f1("/Users/moadkj/Documents/code/git/DNAlgorithms/data/lambda_virus.fa");
+    std::string f2("/Users/moadkj/Documents/code/git/DNAlgorithms/data/SRR835775_1.first1000.fastq");
 
     std::ifstream file(f1); // pass file name as argment
     std::string linebuffer;
@@ -55,7 +59,20 @@ int main(int argc, char* argv[]){
     std::cout << "C : " << base_freq['C'] << std::endl;
     std::cout << "G : " << base_freq['G'] << std::endl;
 
-    std::cout << "Frequency check :" << ((base_freq['A'] + base_freq['T'] + base_freq['C'] + base_freq['G']) == fileBuffer.size() ? "Positive" : "Negative");
+    std::cout << "Frequency check :" << ((base_freq['A'] + base_freq['T'] + base_freq['C'] + base_freq['G']) == fileBuffer.size() ? "Positive" : "Negative") << std::endl;
+
+    std::shared_ptr<DNA::FASTQFile> FQFile(DNA::FASTQFile::readFile(f2));
+
+    std::cout << "FASTQ File Number OF Records :" << FQFile->size() << std::endl;
+
+
+    for(int i = 0; i < 4; i++){
+        std::cout << "Sample : \n"
+                  << "Header: " <<  FQFile->at(i)->getHeader() << "\n"
+                  << "Data: " << FQFile->at(i)->getData() << "\n"
+                  << "Info:" << FQFile->at(i)->getInfo() << "\n"
+                  << "Quality: " << FQFile->at(i)->getQuality() << std::endl;
+    }
 }
 
 
