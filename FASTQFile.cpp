@@ -24,7 +24,7 @@ DNA::FASTQFile *DNA::FASTQFile::readFile(std::string &path) {
     while (file && getline(file, linebuffer)){
         switch(offset % 4){
             case 1:
-                builder->setData(linebuffer);
+                builder->setRead(linebuffer);
                 break;
             case 2:
                 builder->setInfo(linebuffer);

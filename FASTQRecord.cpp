@@ -10,8 +10,8 @@ std::string DNA::FASTQRecord::getHeader() const {
     return this->m_Header;
 }
 
-std::string DNA::FASTQRecord::getData() const {
-    return this->m_Data;
+std::string DNA::FASTQRecord::getRead() const {
+    return this->m_Read;
 }
 
 std::string DNA::FASTQRecord::getInfo() const {
@@ -31,8 +31,8 @@ DNA::FASTQRecord::Builder *DNA::FASTQRecord::Builder::setHeader(const std::strin
     return this;
 }
 
-DNA::FASTQRecord::Builder *DNA::FASTQRecord::Builder::setData(const std::string &data) {
-    this->instance->m_Data = data;
+DNA::FASTQRecord::Builder *DNA::FASTQRecord::Builder::setRead(const std::string &data) {
+    this->instance->m_Read = data;
     return this;
 }
 

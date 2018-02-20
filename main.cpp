@@ -39,7 +39,6 @@ int main(int argc, char* argv[]){
         if(linebuffer.at(0) == '>') continue;  //skip the meta header
 
         fileBuffer += linebuffer;
-
     }
 
     file.close();
@@ -66,10 +65,10 @@ int main(int argc, char* argv[]){
     std::cout << "FASTQ File Number OF Records :" << FQFile->size() << std::endl;
 
 
-    for(int i = 0; i < 4; i++){
+    for(int i = 0; i < 10; i++){
         std::cout << "Sample : \n"
                   << "Header: " <<  FQFile->at(i)->getHeader() << "\n"
-                  << "Data: " << FQFile->at(i)->getData() << "\n"
+                  << "Data: " << FQFile->at(i)->getRead() << "\n"
                   << "Info:" << FQFile->at(i)->getInfo() << "\n"
                   << "Quality: " << FQFile->at(i)->getQuality() << std::endl;
     }
