@@ -20,7 +20,7 @@ namespace DNA {
                 case 'T': return 'A';
                 case 'C': return 'G';
                 case 'G': return 'C';
-                default: return '\0';
+                default: return 'N';
             }
         }
 
