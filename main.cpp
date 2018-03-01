@@ -28,8 +28,8 @@ int main(int argc, char* argv[]){
 
 
     std::string fileBuffer;
-    std::string f1("/Users/moadkj/Documents/code/git/DNAlgorithms/data/lambda_virus.fa");
-    std::string f2("/Users/moadkj/Documents/code/git/DNAlgorithms/data/SRR835775_1.first1000.fastq");
+    std::string f1("../data/lambda_virus.fa");
+    std::string f2("../data/SRR835775_1.first1000.fastq");
 
     std::ifstream file(f1); // pass file name as argment
     std::string linebuffer;
